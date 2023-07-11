@@ -17,7 +17,7 @@
     "gulp-sass": "^5.1.0",
     "gulp-tslint": "^8.1.1",
     "gulp-webpack": "^1.5.0",
-    "office-ui-fabric-react": "^4.51.1",
+    "office-ui-fabric-react": "^7.204.0",
     "promise-polyfill": "^8.1.0",
     "requirejs": "^2.3.2",
     "ts-loader": "^4.2.0",
