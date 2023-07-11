@@ -1,0 +1,202 @@
+@import "colors";
+
+$tile-size: 15px;
+@mixin hover-style {
+    @include background-color(aliceblue);
+}
+@mixin focused-style {
+    @include hover-style;
+    @include outline(solid, 1px, black);
+}
+@mixin focus-element {
+    &:hover {
+        @include hover-style;
+    }
+    &:focus, &.focus {
+        @include focused-style;
+    }
+}
+body.contributions-body {
+    &.hub {
+        overflow: auto;
+        padding: 8px;
+    }
+    &.widget {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .feedback {
+        float: right;
+    }
+    button.ms-Button {
+        @include focus-element;
+    }
+    .collapsible-header {   
+        .header {
+            display: flex;
+            align-items: center;
+            h1,h2,h3,h4,h5,h6 {
+                margin: 0px;
+                display: inline-block;
+            }
+            button.toggle-button {
+                vertical-align: sub;
+            }
+        }
+    }
+    .filter-container {
+        .filter-header {
+            input {
+                @include color(black);
+            }
+            .filters {
+                display: table;
+                > * {
+                    display: table-row;
+                    > * {
+                        @include color(black);
+                        display: table-cell;
+                        vertical-align: top;
+                        padding: 3px 5px;
+                    }
+                }
+                .ms-TagItem {
+                    @include background-color(palette-neutral-4);
+                    &:hover {
+                        @include background-color(palette-neutral-8);
+                    }
+                    &.is-selected {
+                        @include background-color(palette-neutral-20);
+                    }
+                    .ms-TagItem-close {
+                        @include color(palette-neutral-60);
+                    }
+                }
+                .ms-Toggle {
+                    @include focus-element;
+                }
+            }
+        }
+
+    }
+    .graphs {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .user-contributions {
+        margin: 0 5px;
+        
+        .ms-Persona-primaryText {
+            @include color(black);
+        }
+    }
+    
+    .graph {
+        display: table;
+        .month-labels {
+            display: flex;
+        }
+        .year {
+            display: flex;
+            position: relative;
+            flex-flow: row wrap;
+            .day-container {
+                cursor: pointer;
+                &.place-holder {
+                    visibility: hidden;
+                }
+                &:focus {
+                    @include outline(solid, 2px, darkgray);
+                }
+                .day {
+                    @include background-color(lightgray);
+                    margin: 1px;
+                    &.work_0 {
+                        @include background-color(work0);
+                    }
+                    &.work_25 {
+                        @include background-color(work25);
+                    }
+                    &.work_50 {
+                        @include background-color(work50);
+                    }
+                    &.work_75 {
+                        @include background-color(work75);
+                    }
+                }
+                .day-filter {
+                    margin: 1px;
+                    position: relative;
+                    &.hover:not(.selected) {
+                        opacity: 0.3;
+                        @include background-color(black);
+                    }
+                    &.selected {
+                        @include border(solid, 3px, black);
+                    }
+                }
+            }
+        }
+        .graph-spinner {
+            position: absolute;
+        }
+    }
+    .graph .year {
+        height: ($tile-size + 2) * 7;
+        width: ($tile-size + 2) * 52;
+        .graph-spinner {
+            left: 437px;
+            bottom: 42px;
+        }
+        .day-container {
+            width: $tile-size + 2;
+            height: $tile-size + 2;
+            .day {
+                width: $tile-size;
+                height: $tile-size;
+            }
+            .day-filter {
+                width: $tile-size;
+                height: $tile-size;
+                top: -  $tile-size - 1;
+            }
+        }
+    }
+    .time-window {
+        .header {
+            h3 {
+            }
+        }
+        .search-contributions {
+            display: flex;
+            .search-box {
+                width: 400px;
+                input {
+                    @include color(black);
+                    @include background-color(white);
+                }
+            }
+        }
+        .contribution-section {
+            .hidden {
+                display: none;
+            }
+            .contribution-item {
+                padding: 2px 0px 2px 20px;
+                @include focus-element;
+                a.title {
+                    @include color(black);
+                    &:hover, &:visited, &:hover, &:focus, &:active {
+                        @include color(black);
+                    }
+                }
+                .location-time {
+                    font-size: smaller;
+                    @include color(darkgray);
+                }
+            }
+        }
+    }
+}

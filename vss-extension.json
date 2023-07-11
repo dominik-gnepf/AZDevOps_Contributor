@@ -1,0 +1,75 @@
+{
+    "manifestVersion": 1,
+    "id": "contributions",
+    "version": "2.1.26",
+    "name": "Contributions Graph",
+    "scopes": [
+        "vso.work",
+        "vso.code"
+    ],
+    "description": "View account contributions by user.",
+    "publisher": "ottostreifel",
+    "icons": {
+        "default": "img/logo.png"
+    },
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services.Cloud"
+        },
+        {
+            "id": "Microsoft.TeamFoundation.Server",
+            "version": "[15.0,)"
+        }
+    ],
+    "tags": [
+        "Work Items",
+        "Work Item",
+        "Git",
+        "Pull Request",
+        "Commit",
+        "Visualization",
+        "Contributions"
+    ],
+    "content": {
+        "details": {
+            "path": "details.md"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/ostreifel/vsts-contributions"
+    },
+    "branding": {
+        "color": "rgb(220, 235, 252)",
+        "theme": "light"
+    },
+    "files": [
+        {
+            "path": "dist",
+            "addressable": true
+        },
+        {
+            "path": "img",
+            "addressable": true
+        }
+    ],
+    "categories": [
+        "Collaborate"
+    ],
+    "contributions": [
+        {
+            "id": "contributions-hub",
+            "type": "ms.vss-web.hub",
+            "description": "View code and work item contributions.",
+            "targets": [
+                "ms.vss-work-web.work-hub-group"
+            ],
+            "properties": {
+                "group": "contributed",
+                "name": "Contributions Graph",
+                "uri": "dist/contributionsHub.html",
+                "icon": "asset://img/logo.png"
+            }
+        }
+    ]
+}
