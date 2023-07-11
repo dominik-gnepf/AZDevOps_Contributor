@@ -10,7 +10,10 @@ index.html          - Main entry point
 vss-extension.json  - Extension manifest
 ```
 
-### Version History ###
+### All Credits to ###
+@ostreifel
+
+This is only a modified Version from ostreifel.
 
 ```
 0.7.0 - Updated VSS SDK, moved from `typings` to `@types`
